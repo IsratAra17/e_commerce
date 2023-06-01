@@ -33,3 +33,23 @@ TextStyle Head1TextStyle(textcolor){
   );
 
 }
+TextStyle head6TextStyle(textcolor){
+  return TextStyle(
+      color: textcolor,
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
+      fontFamily: 'poppins'
+
+  );
+
+}
+TextStyle Head9TextStyle(textcolor){
+  return TextStyle(
+      color: textcolor,
+      fontWeight: FontWeight.w400,
+      fontSize: 9,
+      fontFamily: 'poppins'
+
+  );
+
+}
