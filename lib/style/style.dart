@@ -23,3 +23,13 @@ ButtonStyle AppButtonStyle(btnColor)
     backgroundColor: btnColor
   );
 }
+TextStyle Head1TextStyle(textcolor)
+{
+  return TextStyle(
+    color: textcolor,
+    fontWeight: FontWeight.w400,
+    fontSize: 9,
+    fontFamily: 'poppins'
+
+  );
+}
