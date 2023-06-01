@@ -15,4 +15,11 @@ const colorDarkBlue = Color.fromRGBO(44, 62, 80, 1.0);
 const colorLightGray = Color.fromRGBO(135, 142, 150, 1.0);
 const colorLight = Color.fromRGBO(211, 211, 211, 1.0);
 
-g
+ButtonStyle AppButtonStyle(btnColor)
+{
+  return ElevatedButton.styleFrom(
+    elevation: 1,
+    padding: EdgeInsets.zero,
+    backgroundColor: btnColor
+  );
+}
