@@ -67,7 +67,7 @@ InputDecoration AppInputDecoration(label)
     filled: true,
     contentPadding: EdgeInsets.fromLTRB(20, 10, 10, 20),
  enabledBorder: const OutlineInputBorder(
-   borderSide: BorderSide(color: colorWhite,width: 0.0),
+   borderSide: BorderSide(color: colorRed,width: 0.0),
  ),
     border: OutlineInputBorder(),
     labelText: label,
