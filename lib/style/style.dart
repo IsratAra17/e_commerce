@@ -96,3 +96,24 @@ void ErrorToast(msg) {
     fontSize: 16.0,
   );
 }
+TextStyle ButtonTextStyle() {
+  return TextStyle(
+    fontWeight: FontWeight.w400,
+    fontFamily: 'poppins',
+    fontSize: 14,
+  );
+}
+Ink SuccessButtonChild(String ButtonText) {
+  return Ink(
+    decoration: BoxDecoration(
+        color: colorGreen, borderRadius: BorderRadius.circular(6)),
+    child: Container(
+      height: 45,
+      alignment: Alignment.center,
+      child: Text(
+        ButtonText,
+        style: ButtonTextStyle(),
+      ),
+    ),
+  );
+}
