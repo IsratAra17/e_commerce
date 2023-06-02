@@ -17,6 +17,16 @@ const colorDarkBlue = Color.fromRGBO(44, 62, 80, 1.0);
 const colorLightGray = Color.fromRGBO(135, 142, 150, 1.0);
 const colorLight = Color.fromRGBO(211, 211, 211, 1.0);
 
+SvgPicture ScreenBackground(context) {
+  return SvgPicture.asset(
+    'assets/image/screen-back',
+    alignment: Alignment.center,
+    width: MediaQuery.of(context).size.width,
+    height: MediaQuery.of(context).size.height,
+    fit: BoxFit.cover,
+  );
+}
+
 ButtonStyle AppButtonStyle(btnColor) {
   return ElevatedButton.styleFrom(
       elevation: 1, padding: EdgeInsets.zero, backgroundColor: btnColor);
@@ -62,5 +72,27 @@ InputDecoration AppInputDecoration(label)
     border: OutlineInputBorder(),
     labelText: label,
 
+  );
+}
+void SuccessToast(msg) {
+  Fluttertoast.showToast(
+      msg: msg,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      backgroundColor: colorGreen,
+      textColor: colorWhite,
+      fontSize: 16.0);
+}
+
+void ErrorToast(msg) {
+  Fluttertoast.showToast(
+    msg: msg,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    backgroundColor: colorRed,
+    textColor: colorWhite,
+    fontSize: 16.0,
   );
 }
