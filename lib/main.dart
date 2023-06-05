@@ -2,7 +2,7 @@ import 'package:ecommerce/screen/onboarding/login.dart';
 import 'package:ecommerce/screen/onboarding/registrationSreen.dart';
 import 'package:flutter/material.dart';
 
-main() {
+void main() {
   runApp(MyApp("/login"));
 }
 

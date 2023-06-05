@@ -19,7 +19,7 @@ const colorLight = Color.fromRGBO(211, 211, 211, 1.0);
 
 SvgPicture ScreenBackground(context) {
   return SvgPicture.asset(
-    'assets/image/screen-back',
+    'assets/image/screen-back.svg',
     alignment: Alignment.center,
     width: MediaQuery.of(context).size.width,
     height: MediaQuery.of(context).size.height,
