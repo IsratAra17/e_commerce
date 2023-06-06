@@ -1,6 +1,6 @@
 import 'package:ecommerce/screen/onboarding/login.dart';
 import 'package:ecommerce/screen/onboarding/registrationSreen.dart';
-import 'package:ecommerce/screen/profile/homeScreen.dart';
+import 'package:ecommerce/components/homeScreen.dart';
 import 'package:ecommerce/utility/utility.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +26,7 @@ import 'package:flutter/material.dart';
 
 void main()
 {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp("/homeScreen"));
 
 }
