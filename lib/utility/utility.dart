@@ -13,3 +13,8 @@ Future<String?>ReadData(key)async{
   String? mydata=await prefs.getString(key);
   return mydata;
 }
+Future<bool>RemoveToken()async{
+  final prefs=await SharedPreferences.getInstance();
+  prefs.clear();
+  return true;
+}
