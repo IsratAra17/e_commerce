@@ -1,6 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:ecommerce/components/appbottomNav.dart';
-import 'package:ecommerce/components/categoryPage.dart';
+import 'package:ecommerce/components/category/view_category.dart';
 import 'package:ecommerce/components/homepage.dart';
 import 'package:ecommerce/components/oderPage.dart';
 import 'package:ecommerce/components/productPage.dart';
