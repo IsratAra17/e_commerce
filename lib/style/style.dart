@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -16,6 +17,20 @@ const colorWhite = Color.fromRGBO(255, 255, 255, 1.0);
 const colorDarkBlue = Color.fromRGBO(44, 62, 80, 1.0);
 const colorLightGray = Color.fromRGBO(135, 142, 150, 1.0);
 const colorLight = Color.fromRGBO(211, 211, 211, 1.0);
+const colorLightPink = Color.fromRGBO(255, 231, 211,1);
+const colorLightBlue = Color.fromRGBO(106, 199, 188,1);
+const colorLightYellow = Color.fromRGBO(255, 210, 109,1);
+
+var spinkit = SpinKitFadingFour(
+  itemBuilder: (BuildContext context, int index) {
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: index.isEven ? Colors.red : Colors.green,
+      ),
+    );
+  },
+);
+
 
 SvgPicture ScreenBackground(context) {
   return SvgPicture.asset(

@@ -12,7 +12,9 @@ static Future<Map<String,String>>getHeaderwithToken()async {
   final prefs = await SharedPreferences.getInstance();
   var headerwithToken = {
     "Accept": "application/json",
-    "Authorization": "Bearer ${ReadData("token")}"
+   // "Authorization": "Bearer ${ReadData("token")}"
+  "Authorization":"Bearer ${prefs.getString("token")}"
+
   };
   print("HeaderWith token: $headerwithToken");
   return headerwithToken;
@@ -51,6 +53,39 @@ Future<dynamic>SigninRequest(FormValues) async{
 
   }
 }
+
+
+
+
+Future<dynamic>GetCategoryRequest() async {
+  var URL=Uri.parse("${BaseURL}/api/admin/category");
+  print("URL: $URL");
+
+  var response= await http.get(URL,headers:await HeaderWithToken.getHeaderwithToken());
+  print("response: $response");
+
+  var ResultCode=response.statusCode;
+  print("ResultCode: $ResultCode");
+
+  var ResultBody=json.decode(response.body);
+  print("ResultBody: $ResultBody");
+
+  if(ResultCode==200){
+    SuccessToast("Request Success");
+    print("ResultCode: $ResultCode");
+
+    return true;
+  }
+  else{
+    ErrorToast("Request fail ! try again");
+    print("ResultCode: $ResultCode");
+
+    return false;
+  }
+}
+
+
+
 // Future<dynamic>AdminProfileRequest(FormValues)async{
 //   var URL=Uri.parse("${BaseURL}/api/admin/profile");
 //   print("URL Profile Admin: $URL");

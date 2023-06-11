@@ -8,7 +8,7 @@ Future<dynamic>SaveToken(data) async {
   return data;
 }
 
-Future<String?>ReadData(key)async{
+Future<dynamic>ReadData(key)async{
   final prefs=await SharedPreferences.getInstance();
   String? mydata=await prefs.getString(key);
   return mydata;

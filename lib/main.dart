@@ -4,32 +4,32 @@ import 'package:ecommerce/components/homeScreen.dart';
 import 'package:ecommerce/utility/utility.dart';
 import 'package:flutter/material.dart';
 
-// main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   String? token = await ReadData("token");
-//   if (token != null) {
-//     print("regis token: $token");
-//
-//     runApp(MyApp("/homeScreen"));
-//
-//   }
-//   else
-//     {
-//       print("login token: $token");
-//
-//       runApp(MyApp("/login"));
-//
-//     }
-//   print("MAin token: $token");
-//
-// }
-
-void main()
-{
+main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp("/homeScreen"));
+  String? token = await ReadData("token");
+  if (token != null) {
+    print("regis token: $token");
+
+    runApp(MyApp("/homeScreen"));
+
+  }
+  else
+    {
+      print("login token: $token");
+
+      runApp(MyApp("/login"));
+
+    }
+  print("MAin token: $token");
 
 }
+
+// void main()
+// {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   runApp(MyApp("/homeScreen"));
+//
+// }
 class MyApp extends StatelessWidget {
   final String FirstRoute;
   const MyApp(this.FirstRoute);
