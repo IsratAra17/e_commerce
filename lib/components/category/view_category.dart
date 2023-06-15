@@ -1,9 +1,9 @@
-import 'dart:ui';
-
 import 'package:ecommerce/api/apiClient.dart';
 import 'package:ecommerce/components/category/categoryList.dart';
 import 'package:ecommerce/style/style.dart';
 import 'package:flutter/material.dart';
+
+import 'category_model.dart';
 
 class Category_page extends StatefulWidget {
   const Category_page({Key? key}) : super(key: key);
@@ -12,17 +12,24 @@ class Category_page extends StatefulWidget {
 }
 
 class _Category_pageState extends State<Category_page> {
-  var myList = [
-    {"img": "https://shrtco.de/qkc1U8", "title": "1st"},
-    {"img": "https://shrtco.de/qkc1U8", "title": "2nd"},
-    {"img": "https://shrtco.de/qkc1U8", "title": "4th"},
-    {"img": "https://shrtco.de/qkc1U8", "title": "5th"},
-    {"img": "https://shrtco.de/qkc1U8", "title": "6th"},
-    {"img": "https://shrtco.de/qkc1U8", "title": "7th"},
-    {"img": "https://shrtco.de/qkc1U8", "title": "8th"},
-    {"img": "https://shrtco.de/qkc1U8", "title": "9th"},
-    {"img": "https://shrtco.de/qkc1U8", "title": "10th"},
-  ];
+  CategoryModel? categoryModel;
+  List<CategoryModel> categoryList = [];
+
+  @override
+  void initState() {
+    getCategory();
+    super.initState();
+  }
+
+  getCategory() async {
+    var data = await GetCategoryRequest();
+    setState(() {
+      for (var i in data) {
+        categoryModel = CategoryModel.fromJson(i);
+        categoryList.add(categoryModel!);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,21 +41,22 @@ class _Category_pageState extends State<Category_page> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ElevatedButton(onPressed: (){
-            setState(() {
-              print("clicked!");
-              GetCategoryRequest();
+          ElevatedButton(
+              onPressed: () async{
+                setState(() {
+                  getCategory();
+                print("List :   ${getCategory()}");
 
-            });
-
-          }, child: SuccessButtonChild("Click")),
+                });
+              },
+              child: SuccessButtonChild("Click")),
           Text("Categories", style: Head1TextStyle(colorDarkBlue)),
           SizedBox(
             height: 5,
           ),
           Expanded(
             flex: 9,
-            child: CategoryList(),
+            child: CategoryList(categoryList),
           ),
         ],
       ),

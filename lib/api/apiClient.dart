@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:ecommerce/utility/utility.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import '../components/category/category_model.dart';
 import '../style/style.dart';
 
 var BaseURL="http://temp.techsolutions-bd.com";
@@ -12,7 +13,6 @@ static Future<Map<String,String>>getHeaderwithToken()async {
   final prefs = await SharedPreferences.getInstance();
   var headerwithToken = {
     "Accept": "application/json",
-   // "Authorization": "Bearer ${ReadData("token")}"
   "Authorization":"Bearer ${prefs.getString("token")}"
 
   };
@@ -57,7 +57,8 @@ Future<dynamic>SigninRequest(FormValues) async{
 
 
 
-Future<dynamic>GetCategoryRequest() async {
+Future<List>GetCategoryRequest() async {
+
   var URL=Uri.parse("${BaseURL}/api/admin/category");
   print("URL: $URL");
 
@@ -74,13 +75,15 @@ Future<dynamic>GetCategoryRequest() async {
     SuccessToast("Request Success");
     print("ResultCode: $ResultCode");
 
-    return true;
+    print("data areeeee ${ResultBody}");
+
+    return ResultBody;
   }
   else{
     ErrorToast("Request fail ! try again");
     print("ResultCode: $ResultCode");
 
-    return false;
+    return [];
   }
 }
 
